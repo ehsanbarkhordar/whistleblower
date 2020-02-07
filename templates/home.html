@@ -2,17 +2,18 @@
 {% load static %}
 
 {% block content %}
-    <img src="{% static "images/raisi.jpg" %}" alt="raisi" style="height: 100%;width: 100%">
+{#    <img src="{% static "images/raisi.jpg" %}" alt="raisi" style="height: 100%;width: 100%">#}
     <div class="center">
         {{ form.as_p }}
-        {#        {% for field in form %}#}
-        {#            <div class="fieldWrapper" dir="rtl">#}
-        {#                {{ field.errors }}#}
-        {#                {{ field.label_tag }} {{ field }}#}
-        {#                {% if field.help_text %}#}
-        {#                    <p class="help">{{ field.help_text|safe }}</p>#}
-        {#                {% endif %}#}
-        {#            </div>#}
-        {#        {% endfor %}#}
+        <button type="submit" class="save btn btn-default">بفرست</button>
+{#                {% for field in form %}#}
+{#                    <div class="fieldWrapper" dir="rtl">#}
+{#                        {{ field.errors }}#}
+{#                        {{ field.label_tag }} {{ field }}#}
+{#                        {% if field.help_text %}#}
+{#                            <p class="help">{{ field.help_text|safe }}</p>#}
+{#                        {% endif %}#}
+{#                    </div>#}
+{#                {% endfor %}#}
     </div>
 {% endblock content %}

@@ -1,18 +1,13 @@
 from django import forms
-from reports.models import Document, Report
-from django.forms.models import inlineformset_factory
+from reports.models import Whistle
 
 
-class DocumentForm(forms.ModelForm):
-    class Meta:
-        model = Document
-        exclude=[]
-
-#
 class ReportForm(forms.ModelForm):
     class Meta:
-        model = Report
-        exclude = ['committed_at', 'account']
-
-
-ReportInlineFormset = inlineformset_factory(Document, Report, extra=1, form=DocumentForm)
+        model = Whistle
+        exclude = ['committed_at']
+        # widgets = {
+        #     # 'first_name': forms.TextInput(attrs={'placeholder': 'اسم خودت'}),
+        #     'description': forms.Textarea(
+        #         attrs={'placeholder': 'شرح فساد رو خلاصه و دقیق با زمان و مکانش اینجا بنویس.'}),
+        # }

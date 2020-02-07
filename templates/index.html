@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Home | Impact By Distinctive Themes</title>
+    <link href="{% static "single-page/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "single-page/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "single-page/css/pe-icons.css" %}" rel="stylesheet">
+    <link href="{% static "single-page/css/prettyPhoto.css" %}" rel="stylesheet">
+    <link href="{% static "single-page/css/animate.css" %}" rel="stylesheet">
+    <link href="{% static "single-page/css/style.css" %}" rel="stylesheet">
+    <link href="{% static "css/main.css" %}" rel="stylesheet">
+    <script src="{% static "single-page/js/jquery.js" %}"></script>
+    <link rel="shortcut icon" href="{% static "single-page/images/ico/favicon.ico" %}">
+    <link rel="apple-touch-icon" sizes="144x144"
+          href="{% static "single-page/images/ico/apple-touch-icon-144x144.png" %}">
+    <link rel="apple-touch-icon" sizes="114x114"
+          href="{% static "single-page/images/ico/apple-touch-icon-114x114.png" %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static "single-page/images/ico/apple-touch-icon-72x72.png" %}">
+    <link rel="apple-touch-icon" href="{% static "single-page/images/ico/apple-touch-icon-57x57.png" %}">
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            'use strict';
+            jQuery('body').backstretch([
+                "{% static "single-page/images/bg/bg1.jpg" %}",
+                "{% static "single-page/images/bg/bg2.jpg" %}",
+                "{% static "single-page/images/bg/bg3.jpg" %}",
+            ], {duration: 5000, fade: 500});
+
+            $("#mapwrapper").gMap({
+                controls: false,
+                scrollwheel: false,
+                markers: [{
+                    latitude: 40.7566,
+                    longitude: -73.9863,
+                    icon: {
+                        image: "{% static "single-page/images/marker.png" %}",
+                        iconsize: [44, 44],
+                        iconanchor: [12, 46],
+                        infowindowanchor: [12, 0]
+                    }
+                }],
+                icon: {
+                    image: "{% static "single-page/images/marker.png" %}",
+                    iconsize: [26, 46],
+                    iconanchor: [12, 46],
+                    infowindowanchor: [12, 0]
+                },
+                latitude: 40.7566,
+                longitude: -73.9863,
+                zoom: 14
+            });
+        });
+    </script>
+</head>
+<body dir="auto">
+{#<div id="preloader"></div>#}
+{#<header class="navbar navbar-inverse" role="banner">#}
+{#    <div id="search-wrapper">#}
+{#        <div class="container">#}
+{#            <input id="search-box" placeholder="Search">#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="container">#}
+{#        <div class="navbar-header">#}
+{#            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">#}
+{#                <span class="sr-only">Toggle navigation</span>#}
+{#                <i class="fa fa-bars"></i>#}
+{#            </button>#}
+{#            <a class="navbar-brand" href="index.html"><h1><span class="pe-7s-gleam bounce-in"></span> IMPACT</h1></a>#}
+{#        </div>#}
+{#        <div class="collapse navbar-collapse">#}
+{#            <ul class="nav navbar-nav navbar-right">#}
+{#                <li class="active"><a href="index.html">Home</a></li>#}
+{#                <li><a href="#services">Services</a></li>#}
+{#                <li><a href="#about-us">About Us</a></li>#}
+{#                <li><a href="#portfolio">Portfolio</a></li>#}
+{#                <li><a href="#blog">Blog</a></li>#}
+{#                <li><a href="#pricing">Pricing</a></li>#}
+{#                <li><a href="#contact">Contact</a></li>#}
+{#                <li><span class="search-trigger"><i class="fa fa-search"></i></span></li>#}
+{#            </ul>#}
+{#        </div>#}
+{#    </div>#}
+{#</header>#}
+
+<section id="main-slider" class="no-margin">
+    <div class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {#                            <div class="carousel-content center centered">#}
+                            <h2 class="animation animated-item-1 fade-down black-title">به من چه به تو چه ممنوع!</h2>
+                            <h5 class="animation animated-item-1 fade-down black-title">به سامانه جامع سوت زنی خوش آمدید😊</h5>
+                            {#                                <span class="home-icon pe-7s-gleam bounce-in"></span>#}
+                            {#                                {{ form.as_p }}#}
+{#                                                        {% for field in form %}#}
+{#                                                            <div class="fieldWrapper">#}
+{#                                                                {{ field.errors }}#}
+{#                                                                {{ field.label_tag }} {{ field }}#}
+{#                                                                {% if field.help_text %}#}
+{#                                                                    <p class="help">{{ field.help_text|safe }}</p>#}
+{#                                                                {% endif %}#}
+{#                                                            </div>#}
+{#                                                        {% endfor %}#}
+{##}
+                            <div class="fieldWrapper">
+                                {{ form.first_name.errors }}
+                                <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}:</label>
+                                {{ form.first_name }}
+                            </div>
+                            <div class="fieldWrapper">
+                                {{ form.last_name.errors }}
+                                <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}:</label>
+                                {{ form.last_name }}
+                            </div>
+                            <div class="fieldWrapper">
+                                {{ form.phone_number.errors }}
+                                <label for="{{ form.phone_number.id_for_label }}">{{ form.phone_number.label }}:</label>
+                                {{ form.phone_number }}
+                            </div>
+                            <div class="fieldWrapper">
+                                {{ form.email.errors }}
+                                <label for="{{ form.email.id_for_label }}"> {{ form.email.label }}:</label>
+                                {{ form.email }}
+                            </div>
+                            <div class="fieldWrapper">
+                                {{ form.title.errors }}
+                                <label for="{{ form.title.id_for_label }}"> {{ form.title.label }}:</label>
+                                {{ form.title }}
+                            </div>
+                            <div class="fieldWrapper">
+                                {{ form.description.errors }}
+                                <label for="{{ form.description.id_for_label }}">شرح فساد رو خلاصه و دقیق با زمان و مکانش اینجا زیر بنویس👇🏻</label>
+                                <br>
+                                {{ form.description }}
+                            </div>
+                            <div class="fieldWrapper">
+                                {{ form.file.errors }}
+                                <label for="{{ form.file.id_for_label }}">اگر مدرک یا فایل مرتبطی داری اینجا آپلود کن👇🏻</label>
+                                {{ form.file }}
+                            </div>
+                            <div class="fieldWrapper">
+                                {{ form.contact_you.errors }}
+                                <label for="{{ form.contact_you.id_for_label }}"> {{ form.contact_you.label }}</label>
+                                {{ form.contact_you }}
+                            </div>
+                            {{ form.non_field_errors }}
+
+                            <button type="submit" class="boxed btn">بفرست</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="{% static "single-page/js/plugins.js" %}"></script>
+<script src="{% static "single-page/js/bootstrap.min.js" %}"></script>
+<script src="{% static "single-page/js/jquery.prettyPhoto.js" %}"></script>
+<script src="{% static "single-page/js/init.js" %}"></script>
+</body>
+</html>

@@ -1,26 +1,36 @@
 @font-face {
     font-family: Vazir;
-    src: url('fonts/vazir/Vazir.eot');
-    src: url('fonts/vazir/Vazir.eot?#iefix') format('embedded-opentype'),
-    url('fonts/vazir/Vazir.woff2') format('woff2'),
-    url('fonts/vazir/Vazir.woff') format('woff'),
-    url('fonts/vazir/Vazir.ttf') format('truetype');
+    src: url('../fonts/vazir/Vazir.eot');
+    src: url('../fonts/vazir/Vazir.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/vazir/Vazir.woff2') format('woff2'),
+    url('../fonts/vazir/Vazir.woff') format('woff'),
+    url('../fonts/vazir/Vazir.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: Yekan;
-    src: url('fonts/yekan/Yekan.eot');
-    src: url('fonts/yekan/Yekan.eot?#iefix') format('embedded-opentype'),
-    url('fonts/yekan/Yekan.woff') format('woff'),
-    url('fonts/yekan/Yekan.ttf') format('truetype');
+    src: url('../fonts/yekan/Yekan.eot');
+    src: url('../fonts/yekan/Yekan.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/yekan/Yekan.woff') format('woff'),
+    url('../fonts/yekan/Yekan.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Sahel;
+    src: url('../fonts/sahel/Sahel.eot');
+    src: url('../fonts/sahel/Sahel.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/sahel/Sahel.woff') format('woff'),
+    url('../fonts/sahel/Sahel.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 body {
-    font-family: Yekan, serif;
+    font-family: Sahel, serif;
     background-color: whitesmoke;
 }
 
@@ -31,10 +41,29 @@ body {
     text-align: center;
 }
 
-.center {
-    display: block;
-    margin-bottom: 5%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 25%;
+label {
+    /*padding: 10px 15px;*/
+    background-color: black;
+    /*display: inline-block;*/
+    /*text-transform: uppercase;*/
 }
+
+.black-title {
+    display: table; /* keep the background color wrapped tight */
+    /*margin: 0 auto 0 auto; !* keep the table centered *!*/
+    padding: 15px;
+    /*font-size: 20px;*/
+        font-family: Yekan, serif;
+
+    background-color: black;
+      border-radius: 25px;
+    /*color: #ffffff;*/
+}
+
+/*.center {*/
+/*display: block;*/
+/*margin-bottom: 5%;*/
+/*margin-left: auto;*/
+/*margin-right: auto;*/
+/*width: 25%;*/
+/*}*/
