@@ -33,6 +33,7 @@ body {
     font-family: Sahel, serif;
     /*background-color: whitesmoke;*/
 }
+textarea{height: 50%!important;}
 
 /*.responsive {*/
     /*width: 25%;*/

@@ -13,7 +13,9 @@ class ReportForm(forms.ModelForm):
             "document": "اگر مدرک یا فایل مرتبطی داری اینجا آپلود کن",
             "phone_number": "تلفن همراه (اختیاری)",
         }
-
+        # widgets = {
+        #     'description': forms.Textarea(attrs={'rows': 10, 'cols': 50}),
+        # }
         # widgets = {
         #     # 'first_name': forms.TextInput(attrs={'placeholder': 'اسم خودت'}),
         #     'description': forms.Textarea(

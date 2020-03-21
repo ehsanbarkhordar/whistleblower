@@ -10,6 +10,8 @@
             <form class="container" action="" method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
+                <script src='https://www.google.com/recaptcha/api.js'></script>
+                <div class="g-recaptcha" data-sitekey="6LcX_OIUAAAAAI2cRt2Ynfkg-oK6WGu0RCex62Yp"></div>
                 <button class="btn waves-effect waves-light cyan" type="submit" name="action">بفرست
                     <i class="material-icons right">send</i>
                 </button>

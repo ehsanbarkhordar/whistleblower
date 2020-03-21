@@ -24,3 +24,25 @@ def unique_reference_number():
         return reference_number
     else:
         return unique_reference_number()
+
+
+def generate_captcha():
+    from captcha.audio import AudioCaptcha
+    from captcha.image import ImageCaptcha
+
+    # audio = AudioCaptcha(voicedir='/path/to/voices')
+
+    import os
+    dirname = os.path.dirname(__file__)
+    font_a = os.path.join(dirname, '../static/fonts/vazir/Vazir.ttf')
+    font_b = os.path.join(dirname, '../static/fonts/sahel/Sahel.ttf')
+
+    image = ImageCaptcha(fonts=[font_a, font_b])
+
+    # data = audio.generate('1234')
+    # audio.write('1234', 'out.wav')
+
+    data = image.generate('1234')
+    # a=image.write('1234', 'out.png')
+    return data
+

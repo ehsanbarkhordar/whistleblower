@@ -142,3 +142,4 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 # STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 REFERENCE_NUMBER_LENGTH = '8'
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LcX_OIUAAAAADZUlIGMoeWN0gkQIH2rUzTT-YUb'

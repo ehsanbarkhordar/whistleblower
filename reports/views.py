@@ -9,7 +9,7 @@ from rest_framework.viewsets import GenericViewSet
 from reports.forms import ReportForm
 from reports.models import Report
 from reports.serializers import GroupSerializer, UserSerializer, ReportSerializer
-from reports.utils import unique_reference_number, utc_to_local
+from reports.utils import unique_reference_number, utc_to_local, generate_captcha
 
 
 class UserViewSet(viewsets.ModelViewSet):
