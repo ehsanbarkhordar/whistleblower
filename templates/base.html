@@ -5,8 +5,15 @@
     <title>Whistleblowers</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-{#    <link rel="stylesheet" href="{% static "css/main.css" %}"/>#}
-{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">#}
+    <link rel="stylesheet" href="{% static "css/main.css" %}"/>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{% static "materialize/css/materialize.min.css" %}"
+          media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {% block head %}
     {% endblock head %}
     {% block style %}
@@ -14,5 +21,6 @@
 </head>
 <body dir="auto">
 {% block content %}{% endblock content %}
+<script type="text/javascript" src="{% static "materialize/js/materialize.min.js" %}"></script>
 </body>
 </html>
