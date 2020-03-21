@@ -37,7 +37,7 @@ def thanks(request):
         a = Report.objects.first()
         mm = utc_to_local(a.modified_datetime)
         currenct = JalaliDatetime(mm)
-        return render(request, 'thanks.html', {'ref_number': currenct.strftime("%C")})
+        return render(request, 'thanks.html', {'created_datetime': currenct.strftime("%C"),'ref_number':"۱۲۳۴۵۶۷۸۹۲"})
 
     # if a GET (or any other method) we'll create a blank form
 

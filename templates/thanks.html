@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <h4>{{ created_datetime }}</h4>
-    <h1>گزارش شما با شماره پیگیری {{ ref_number }} با موفقیت ثبت شد.</h1>
-    <h3>ممنون از حسن نظر شما</h3>
-    <a href="/" class="button">ثبت گزارش جدید</a>
+    <div class="row section center container">
+
+        <h4>{{ created_datetime }}</h4>
+        <h3>گزارش شما با شماره پیگیری
+            <span class="cyan-text">{{ ref_number }}</span>
+            با موفقیت ثبت شد.</h3>
+        <h4>بابت حس مسئولیت پذیری شما سپاس گزاریم. 😊</h4>
+        <a href="/" class="btn waves-effect waves-light cyan">ثبت گزارش جدید</a>
+    </div>
+
 
 {% endblock content %}
