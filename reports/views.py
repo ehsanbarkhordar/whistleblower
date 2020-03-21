@@ -1,6 +1,7 @@
 import persian
 from django.contrib.auth.models import User, Group
 from django.shortcuts import render
+from khayyam import JalaliDatetime
 from rest_framework import permissions, mixins
 from rest_framework import viewsets
 from rest_framework.viewsets import GenericViewSet
@@ -8,7 +9,7 @@ from rest_framework.viewsets import GenericViewSet
 from reports.forms import ReportForm
 from reports.models import Report
 from reports.serializers import GroupSerializer, UserSerializer, ReportSerializer
-from reports.utils import unique_reference_number
+from reports.utils import unique_reference_number, utc_to_local
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -33,7 +34,10 @@ def thanks(request):
     # if this is a POST request we need to process the form data
     if request.method == 'GET':
         # create a form instance and populate it with data from the request:
-        return render(request, 'thanks.html', {'ref_number': "2121"})
+        a = Report.objects.first()
+        mm = utc_to_local(a.modified_datetime)
+        currenct = JalaliDatetime(mm)
+        return render(request, 'thanks.html', {'ref_number': currenct.strftime("%C")})
 
     # if a GET (or any other method) we'll create a blank form
 
@@ -47,7 +51,11 @@ def home(request):
             new_report.reference_number = reference_number
             new_report.save()
             ref_number = persian.convert_en_numbers(str(reference_number))
-            return render(request, 'thanks.html', {'ref_number': ref_number})
+            created_datetime = utc_to_local(new_report.created_datetime)
+            created_datetime = JalaliDatetime(created_datetime)
+            return render(request, 'thanks.html',
+                          {'ref_number': ref_number,
+                           'created_datetime': created_datetime.strftime('%C')})
     else:
         form = ReportForm()
     return render(request, 'home.html', {'form': form})

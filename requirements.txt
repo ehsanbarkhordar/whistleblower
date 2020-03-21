@@ -4,3 +4,4 @@ djangorestframework==3.11.0
 Markdown==3.2.1
 psycopg2-binary==2.8.4
 persian==0.4.0
+Khayyam==3.0.17

@@ -1,10 +1,15 @@
 import random
 from datetime import datetime
+from django.utils import timezone
 
 from reports.models import Report
 from whistleblowers.settings import REFERENCE_NUMBER_LENGTH
 
 random.seed(datetime.now())
+
+
+def utc_to_local(utc_dt):
+    return utc_dt.replace(tzinfo=timezone.utc).astimezone(tz=None)
 
 
 def random_with_n_digits(n):

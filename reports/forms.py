@@ -5,7 +5,7 @@ from reports.models import Report
 class ReportForm(forms.ModelForm):
     class Meta:
         model = Report
-        exclude = ['datetime', 'reference_number']
+        exclude = ['created_datetime', 'reference_number']
         # widgets = {
         #     # 'first_name': forms.TextInput(attrs={'placeholder': 'اسم خودت'}),
         #     'description': forms.Textarea(

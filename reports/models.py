@@ -12,7 +12,8 @@ class Report(models.Model):
     description = models.TextField()
     document = models.FileField(upload_to='documents/', null=True, blank=True)
     phone_number = models.CharField(validators=[phone_regex], max_length=17, null=True, blank=True)
-    datetime = models.DateTimeField(auto_now_add=True)
+    created_datetime = models.DateTimeField(auto_now_add=True)
+    modified_datetime = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = "Report"
