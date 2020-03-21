@@ -1,11 +1,11 @@
 from django import forms
-from reports.models import Whistle
+from reports.models import Report
 
 
 class ReportForm(forms.ModelForm):
     class Meta:
-        model = Whistle
-        exclude = ['committed_at']
+        model = Report
+        exclude = ['datetime', 'reference_number']
         # widgets = {
         #     # 'first_name': forms.TextInput(attrs={'placeholder': 'اسم خودت'}),
         #     'description': forms.Textarea(

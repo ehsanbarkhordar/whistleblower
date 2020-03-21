@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% load rest_framework %}
+
+<form action="/home/" method="post">
+    {% csrf_token %}
+    {% render_form serializer %}
+    <input type="submit" value="Save" />
+</form>
+{% endblock content %}

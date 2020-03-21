@@ -1,19 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
-{#    <img src="{% static "images/raisi.jpg" %}" alt="raisi" style="height: 100%;width: 100%">#}
-    <div class="center">
+    <form action="" method="post">
+        {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">بفرست</button>
-{#                {% for field in form %}#}
-{#                    <div class="fieldWrapper" dir="rtl">#}
-{#                        {{ field.errors }}#}
-{#                        {{ field.label_tag }} {{ field }}#}
-{#                        {% if field.help_text %}#}
-{#                            <p class="help">{{ field.help_text|safe }}</p>#}
-{#                        {% endif %}#}
-{#                    </div>#}
-{#                {% endfor %}#}
-    </div>
+        <input type="submit" value="Submit">
+    </form>
 {% endblock content %}
