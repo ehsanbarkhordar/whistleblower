@@ -1,4 +1,9 @@
+import json
+
 import persian
+import urllib
+
+from django.contrib import messages
 from django.contrib.auth.models import User, Group
 from django.shortcuts import render
 from khayyam import JalaliDatetime
@@ -9,7 +14,8 @@ from rest_framework.viewsets import GenericViewSet
 from reports.forms import ReportForm
 from reports.models import Report
 from reports.serializers import GroupSerializer, UserSerializer, ReportSerializer
-from reports.utils import unique_reference_number, utc_to_local, generate_captcha
+from reports.utils import unique_reference_number, utc_to_local
+from whistleblowers import settings
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -37,7 +43,7 @@ def thanks(request):
         a = Report.objects.first()
         mm = utc_to_local(a.modified_datetime)
         currenct = JalaliDatetime(mm)
-        return render(request, 'thanks.html', {'created_datetime': currenct.strftime("%C"),'ref_number':"۱۲۳۴۵۶۷۸۹۲"})
+        return render(request, 'thanks.html', {'created_datetime': currenct.strftime("%C"), 'ref_number': "۱۲۳۴۵۶۷۸۹۲"})
 
     # if a GET (or any other method) we'll create a blank form
 
@@ -46,16 +52,34 @@ def home(request):
     if request.method == 'POST':
         form = ReportForm(request.POST)
         if form.is_valid():
-            reference_number = unique_reference_number()
-            new_report = form.save(commit=False)
-            new_report.reference_number = reference_number
-            new_report.save()
-            ref_number = persian.convert_en_numbers(str(reference_number))
-            created_datetime = utc_to_local(new_report.created_datetime)
-            created_datetime = JalaliDatetime(created_datetime)
-            return render(request, 'thanks.html',
-                          {'ref_number': ref_number,
-                           'created_datetime': created_datetime.strftime('%C')})
+            ''' Begin reCAPTCHA validation '''
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            url = 'https://www.google.com/recaptcha/api/siteverify'
+            values = {
+                'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+                'response': recaptcha_response
+            }
+            data = urllib.parse.urlencode(values).encode()
+            req = urllib.request.Request(url, data=data)
+            response = urllib.request.urlopen(req)
+            result = json.loads(response.read().decode())
+            ''' End reCAPTCHA validation '''
+
+            if result['success']:
+                reference_number = unique_reference_number()
+                new_report = form.save(commit=False)
+                new_report.reference_number = reference_number
+                new_report.save()
+                ref_number = persian.convert_en_numbers(str(reference_number))
+                created_datetime = utc_to_local(new_report.created_datetime)
+                created_datetime = JalaliDatetime(created_datetime)
+                return render(request, 'thanks.html',
+                              {'ref_number': ref_number,
+                               'created_datetime': created_datetime.strftime('%C')})
+            else:
+                messages.error(request, 'reCAPTCHA نامعتبر است. لطفا دوباره تلاش کنید.')
+
+
     else:
         form = ReportForm()
     return render(request, 'home.html', {'form': form})
