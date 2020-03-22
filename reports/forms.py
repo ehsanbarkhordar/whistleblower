@@ -5,7 +5,7 @@ from reports.models import Report
 class ReportForm(forms.ModelForm):
     class Meta:
         model = Report
-        exclude = ['created_datetime', 'reference_number']
+        exclude = ['created_datetime', 'reference_number' ,'status']
         labels = {
             "reporter_name": "نام گزارش دهنده (اختیاری)",
             "title": "شرح فساد رو خلاصه و دقیق با زمان و مکانش اینجا زیر بنویس👇",

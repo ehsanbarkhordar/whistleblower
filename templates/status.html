@@ -3,15 +3,13 @@
 {% block content %}
     <div class="row section center cyan-text container">
         <div class="card section">
-            <h4>فرم گزارش فساد️</h4>
-            {#            <h5>سامانه جامع سوت زنی</h5>#}
+            <h4>وضعیت گزارش شما</h4>
         </div>
         <div>
             <form class="container" action="" method="post">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <script src='https://www.google.com/recaptcha/api.js'></script>
-                <div class="g-recaptcha container row" data-sitekey="6LcX_OIUAAAAAI2cRt2Ynfkg-oK6WGu0RCex62Yp"></div>
+                <span>شماره پیگیری خود را وارد نمایید و دکمه جستجو را بزنید</span>
+                <input class="input" name="reference_number" required>
                 {% if messages %}
                     <ul class="messages red-text">
                         {% for message in messages %}
@@ -19,7 +17,7 @@
                         {% endfor %}
                     </ul>
                 {% endif %}
-                <button class="btn waves-effect waves-light cyan" type="submit" name="action">بفرست
+                <button class="btn waves-effect waves-light cyan" type="submit" name="action">جستجو کن
                     <i class="material-icons right">send</i>
                 </button>
                 <a href="/" class="btn waves-effect waves-light orange">بازگشت به خانه</a>

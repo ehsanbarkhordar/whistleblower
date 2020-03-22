@@ -4,6 +4,13 @@ from django.db import models
 phone_regex = RegexValidator(regex=r'^(\+98|0)?9\d{9}$',
                              message="شماره تلفن شما باید در قالب 0930******* باشد.")
 
+STATUS_CHOICES = (
+    ('UNREAD', 'unread'),
+    ('SEEN', 'seen'),
+    ('ONGOING', 'ongoing'),
+    ('ACTED', 'acted'),
+)
+
 
 class Report(models.Model):
     reference_number = models.CharField(max_length=32, unique=True, db_index=True)
@@ -14,6 +21,7 @@ class Report(models.Model):
     phone_number = models.CharField(validators=[phone_regex], max_length=17, null=True, blank=True)
     created_datetime = models.DateTimeField(auto_now_add=True)
     modified_datetime = models.DateTimeField(auto_now=True)
+    status = models.CharField(max_length=50, choices=STATUS_CHOICES, default="unread")
 
     class Meta:
         verbose_name = "Report"

@@ -21,26 +21,19 @@ from django.views.static import serve
 from rest_framework import routers
 
 from reports import views
-from reports.views import new_report, thanks, home
+from reports.views import new_report, thanks, home, status
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'reports', views.ReportViewSet, "ssss")
-# router.register(r'rep', views.SendReport)
 
 urlpatterns = [
     path('api/', include(router.urls)),
-    # path('home/', HomeView.as_view()),
     path('', home),
+    path('status', status),
     path('new', new_report),
     path('thanks/', thanks),
-    # path('list/', ListReportsView.as_view(), name="reports-all"),
-    # path('add/', AddReportView.as_view(), name="report-add"),
-    # path('rr/', RReportViewSet.as_view({'get': 'list'}), name="report-add"),
-    # path('rr/', RReportViewSet.as_view({'post': 'list'}), name="report-add"),
-
-    # re_path('api/(?P<version>(v1|v2))/reports/', include('reports.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('admin/', admin.site.urls),
     re_path(r'^static/(?P<path>.*)$', serve, {
