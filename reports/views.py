@@ -49,6 +49,15 @@ def thanks(request):
 
 
 def home(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'GET':
+        # create a form instance and populate it with data from the request:
+        return render(request, 'home.html', )
+
+    # if a GET (or any other method) we'll create a blank form
+
+
+def new_report(request):
     if request.method == 'POST':
         form = ReportForm(request.POST)
         if form.is_valid():
@@ -82,7 +91,7 @@ def home(request):
 
     else:
         form = ReportForm()
-    return render(request, 'home.html', {'form': form})
+    return render(request, 'new_report.html', {'form': form})
 
 
 # class ReportViewSet(viewsets.ModelViewSet):

@@ -21,7 +21,7 @@ from django.views.static import serve
 from rest_framework import routers
 
 from reports import views
-from reports.views import home, thanks
+from reports.views import new_report, thanks, home
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -33,6 +33,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
     # path('home/', HomeView.as_view()),
     path('', home),
+    path('new', new_report),
     path('thanks/', thanks),
     # path('list/', ListReportsView.as_view(), name="reports-all"),
     # path('add/', AddReportView.as_view(), name="report-add"),

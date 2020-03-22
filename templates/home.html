@@ -1,28 +1,135 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <div class="row section center cyan-text container">
-        <div class="card section">
-            <h4>به من چه به تو چه ممنوع!️</h4>
-            <h5>سامانه جامع سوت زنی</h5>
+    <div dir="rtl">
+        <nav class="light-blue lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+                {#            <a id="logo-container" href="/" class="brand-logo">#}
+                {#                <img  style="height: 60px" src="{% static "logo/whistleblowers.png" %}" alt="logo">#}
+                {#            </a>#}
+                {#            <ul class="right hide-on-med-and-down">#}
+                {#                <li><a href="#">Navbar Link</a></li>#}
+                {#            </ul>#}
+
+                {#            <ul id="nav-mobile" class="sidenav">#}
+                {#                <li><a href="#">Navbar Link</a></li>#}
+                {#            </ul>#}
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+        <div dir="rtl" class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <br><br>
+                <h1 class="header center cyan-text">به من چه به تو چه ممنوع!️</h1>
+                <div class="row center">
+                    <h5 class="header col s12 light">به سامانه جامع سوت زنی خوش آمدید</h5>
+                </div>
+                <div class="row center">
+                    <a href="/new" id="download-button"
+                       class="btn-large waves-effect waves-light orange">ارسال گزارش فساد</a>
+                    <a href="/status" id="download-button"
+                       class="btn-large waves-effect waves-light cyan">پیگیری گزارش</a>
+                </div>
+                <br><br>
+
+            </div>
         </div>
-        <div class="">
-            <form class="container" action="" method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <script src='https://www.google.com/recaptcha/api.js'></script>
-                <div class="g-recaptcha" data-sitekey="6LcX_OIUAAAAAI2cRt2Ynfkg-oK6WGu0RCex62Yp"></div>
-                {% if messages %}
-                    <ul class="messages red-text">
-                        {% for message in messages %}
-                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-                <button class="btn waves-effect waves-light cyan" type="submit" name="action">بفرست
-                    <i class="material-icons right">send</i>
-                </button>
-            </form>
+
+
+        <div class="container">
+            <div class="section">
+
+                <!--   Icon Section   -->
+                <div class="row section card">
+                    <h4 class="header center orange-text">چرا باید فسادی را افشا کنیم؟️</h4>
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <div class="icon">
+                                <i class="fi flaticon-prison"></i>
+                            </div>
+                            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+                            <h5 class="center">حمایت قانونی و دریافت جایزه</h5>
+                            <p class="light">در ایران قوانینی وجود دارد که مطابق آن بر اساس فساد های صورت گرفته مبلغی را
+                                به عنوان پاداش به سوت زنان پرداخت می کنند که این خود پشتوانه ی محکمی برای سوت زنان می
+                                باشد
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+
+                            <h5 class="center">جلوگیری از هدر رفتن ثروت ملی</h5>
+
+                            <p class="light">تا هرچقدر میزان که از فساد و بودجه خواری جلوگیری شود قطعا این مالی که حفظ
+                                شده می توان در جای بهتری که به نفع مردم باشد هزینه شود و سوت زن ها در این مسیر بسیار
+                                تاثیر گذار هستن.</p>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+                            <h5 class="center">مسئولیت پذیری ملی</h5>
+
+                            <p class="light">در جامعه ای که مردم با یکدیگر زندگی می کنند قطعا هر فرد به گردن خود
+                                مسئولیتی ملی دارد و در صورتی که مسئولیت خود را به درستی ایفا نکند خود جزو اولین نفر هایی
+                                است که آسیبش را می بیند.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br><br>
         </div>
+
+        <footer class="page-footer orange">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">فساد را افشا کنید، جایزه بگیرید</h5>
+                        <p class="grey-text text-lighten-4">برای مبارزه با فساد کریدور ویژه ایجاد می‌کنیم / دلال‌ها با
+                            دامن زدن به ادراک فساد در پی کسب درآمد هستند/ هرکس فسادی را افشا کند از وزارت اقتصاد جایزه
+                            می‌گیرد
+                            فرهاد دژپسند وزیر اقتصاد کشور در جلسه اخیر شورای گفت‌وگوی دولت و بخش خصوصی گفت: "برای مبارزه
+                            با فساد کریدور ویژه ایجاد می‌کنم و آماده هر گونه برخوردی هستیم. باید سیستم سوت زنی راه
+                            اندازی کنیم و هر کس با فساد مواجه شد سوت بزند. باید فساد ریشه کن شود بدون اینکه حاشیه جدید
+                            ایجاد شود و از هیچ چیزی نباید ترس داشت و حتما در وزارت اقتصاد و دولت در رابطه با مبازه با
+                            فساد آمادگی دارند. هر کس فساد را افشا کند که منجر به صدور حکم برای فرد فاسد شود افشا کننده
+                            فساد از وزارت اقتصاد جایزه می‌گیرد.".</p>
+
+
+                    </div>
+                    <div class="col l3 s12">
+                        {#                        <h5 class="white-text">Settings</h5>#}
+                        <ul>
+                            {#                            <li><a class="white-text" href="#!">Link 1</a></li>#}
+                            {#                            <li><a class="white-text" href="#!">Link 2</a></li>#}
+                            {#                            <li><a class="white-text" href="#!">Link 3</a></li>#}
+                            {#                            <li><a class="white-text" href="#!">Link 4</a></li>#}
+                        </ul>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">لینک های مرتبط</h5>
+                        <ul>
+                            <li><a class="white-text"
+                                   href="https://shekayat.bazresi.ir/indexcca5.html?option=com_content&view=article&id=15&Itemid=101">سامانه
+                                رسیدگی به شکایات و اعلامات</a></li>
+                            <li><a class="white-text" href="http://sajam.adliran.ir/">ستاد پیشگیری از وقوع جرم قوه
+                                قضاییه</a></li>
+                            <li><a class="white-text" href="https://www.bazresi.ir/">سازمان بازرسی کل کشور</a></li>
+                            <li><a class="white-text" href="https://divan-edalat.ir/">دیوان عدالت اداری</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    تمام حقوق مادی و معنوی این سایت متعلق است به <a class="green-text text-lighten-3" href="/">احسان
+                    برخوردار</a>
+                </div>
+            </div>
+        </footer>
     </div>
 {% endblock content %}
