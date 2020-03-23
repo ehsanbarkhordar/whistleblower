@@ -22,16 +22,48 @@
 <body dir="auto">
 {% block content %}{% endblock content %}
 <script type="text/javascript" src="{% static "materialize/js/materialize.min.js" %}"></script>
-<div class="footer-copyright">
-    <div class="cyan-text container">
-        تمام حقوق مادی و معنوی این سایت متعلق است به گروه
-        <a class="green-text text-lighten-3" href="/">سرو نخبگان کبیر</a>
 
-        <div dir="ltr">&copy; All rights reserved</div>
 
+<footer class="page-footer orange" id="bottom-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">فساد را افشا کنید، جایزه بگیرید</h5>
+                <p class="grey-text text-lighten-4">سامانه سوت زنی پلی برای ارتباط با کسانی است که می توانند
+                    فسادی را در بخش دولتی، عمومی، یا خصوصی افشا کنند. به افشا کنندگان جایزه نقدی و غیرنقدی تعلق می
+                    گیرد.</p>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">تماس با ما</h5>
+                <p>ایمیل :</p>
+                <a class="white-text" href="https://info@whistleblowers.com">info@whistleblowers.com</a>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">لینک های مرتبط</h5>
+                <a class="white-text"
+                   href="https://shekayat.bazresi.ir/indexcca5.html?option=com_content&view=article&id=15&Itemid=101">سامانه
+                    رسیدگی به شکایات و اعلامات</a>
+                <a class="white-text" href="http://sajam.adliran.ir/">ستاد پیشگیری از وقوع جرم قوه
+                    قضاییه</a>
+                <a class="white-text" href="https://www.bazresi.ir/">سازمان بازرسی کل کشور</a>
+                <a class="white-text" href="https://divan-edalat.ir/">دیوان عدالت اداری</a>
+            </div>
+
+        </div>
     </div>
+    <div class="footer center">
+        {#        <div class="container">#}
+        {#            © 2014 Copyright Text#}
+        {#            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>#}
+        {#        </div>#}
+        <div class=" white-text ">
+            تمام حقوق مادی و معنوی این سایت متعلق است به گروه
+            <a class="green-text text-lighten-3" href="/">سرو نخبگان کبیر</a>
 
-</div>
+            <div dir="ltr">&copy; All rights reserved</div>
 
+        </div>
+    </div>
+</footer>
 </body>
 </html>
