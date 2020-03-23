@@ -3,13 +3,21 @@
 {% block content %}
     <div class="row section center cyan-text container">
         <div class="card section">
-            <h4>وضعیت گزارش شما</h4>
+            <h4>پیگیری وضعیت گزارش</h4>
         </div>
         <div>
             <form class="container" action="" method="post">
                 {% csrf_token %}
                 <span>شماره پیگیری خود را وارد نمایید و دکمه جستجو را بزنید</span>
-                <input class="input" name="reference_number" required>
+                {{ form.as_p }}
+                <ul>
+                    {% if reference_number %}
+                        <li>کد پیگیری: <span class="orange-text">{{ reference_number }}</span></li>
+                        <li>عنوان گزارش: <span class="orange-text">{{ title }}</span></li>
+                        <li>وضعیت: <span class="orange-text">{{ status }}</span></li>
+                    {% else %}
+                    {% endif %}
+                </ul>
                 {% if messages %}
                     <ul class="messages red-text">
                         {% for message in messages %}

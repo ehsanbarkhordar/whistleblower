@@ -33,32 +33,36 @@ body {
     font-family: Sahel, serif;
     /*background-color: whitesmoke;*/
 }
-textarea{height: 50%!important;}
+
+textarea {
+    height: 50% !important;
+}
+
 
 /*.responsive {*/
-    /*width: 25%;*/
-    /*height: auto;*/
-    /*align-content: center;*/
-    /*text-align: center;*/
+/*width: 25%;*/
+/*height: auto;*/
+/*align-content: center;*/
+/*text-align: center;*/
 /*}*/
 
 /*label {*/
-    /*!*padding: 10px 15px;*!*/
-    /*background-color: black;*/
-    /*!*display: inline-block;*!*/
-    /*!*text-transform: uppercase;*!*/
+/*!*padding: 10px 15px;*!*/
+/*background-color: black;*/
+/*!*display: inline-block;*!*/
+/*!*text-transform: uppercase;*!*/
 /*}*/
 
 /*.black-title {*/
-    /*display: table; !* keep the background color wrapped tight *!*/
-    /*!*margin: 0 auto 0 auto; !* keep the table centered *!*!*/
-    /*padding: 15px;*/
-    /*!*font-size: 20px;*!*/
-        /*font-family: Yekan, serif;*/
+/*display: table; !* keep the background color wrapped tight *!*/
+/*!*margin: 0 auto 0 auto; !* keep the table centered *!*!*/
+/*padding: 15px;*/
+/*!*font-size: 20px;*!*/
+/*font-family: Yekan, serif;*/
 
-    /*background-color: black;*/
-      /*border-radius: 25px;*/
-    /*!*color: #ffffff;*!*/
+/*background-color: black;*/
+/*border-radius: 25px;*/
+/*!*color: #ffffff;*!*/
 /*}*/
 
 /*.center {*/

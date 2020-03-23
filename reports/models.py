@@ -5,10 +5,10 @@ phone_regex = RegexValidator(regex=r'^(\+98|0)?9\d{9}$',
                              message="شماره تلفن شما باید در قالب 0930******* باشد.")
 
 STATUS_CHOICES = (
-    ('UNREAD', 'unread'),
-    ('SEEN', 'seen'),
-    ('ONGOING', 'ongoing'),
-    ('ACTED', 'acted'),
+    ('UNREAD', 'خوانده نشده'),
+    ('SEEN', 'دیده شده'),
+    ('ONGOING', 'در دست اقدام'),
+    ('ACTED', 'اقدام شده'),
 )
 
 
@@ -21,7 +21,7 @@ class Report(models.Model):
     phone_number = models.CharField(validators=[phone_regex], max_length=17, null=True, blank=True)
     created_datetime = models.DateTimeField(auto_now_add=True)
     modified_datetime = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=50, choices=STATUS_CHOICES, default="unread")
+    status = models.CharField(max_length=50, choices=STATUS_CHOICES, default="خوانده نشده")
 
     class Meta:
         verbose_name = "Report"

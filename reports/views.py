@@ -1,17 +1,17 @@
 import json
 
-import persian
 import urllib
 
 from django.contrib import messages
 from django.contrib.auth.models import User, Group
 from django.shortcuts import render
 from khayyam import JalaliDatetime
+from persiantools import digits
 from rest_framework import permissions, mixins
 from rest_framework import viewsets
 from rest_framework.viewsets import GenericViewSet
 
-from reports.forms import ReportForm
+from reports.forms import ReportForm, StatusForm
 from reports.models import Report
 from reports.serializers import GroupSerializer, UserSerializer, ReportSerializer
 from reports.utils import unique_reference_number, utc_to_local
@@ -60,16 +60,22 @@ def home(request):
 def status(request):
     # if this is a POST request we need to process the form data
     if request.method == 'GET':
+        form = StatusForm()
         # create a form instance and populate it with data from the request:
-        return render(request, 'status.html', )
+        return render(request, 'status.html', {"form": form})
     else:
-        reference_number = request.POST.get("reference_number", None)
-        if reference_number:
-            report = Report.objects.filter(reference_number=reference_number).first()
+        form = StatusForm(request.POST)
+        if form.is_valid():
+            report = Report.objects.filter(reference_number=form.cleaned_data["reference_number"]).first()
             if report:
-                return render(request, 'status.html', {"report": report})
-        messages.error(request, 'کدپیگیری نامعتبر است. بیشتر دقت کنید!')
-    return render(request, 'status.html')
+                reference_number = digits.en_to_fa(report.reference_number)
+                title = digits.en_to_fa(report.title)
+                report_status = digits.en_to_fa(report.get_status_display())
+                return render(request, 'status.html', {"reference_number": reference_number,
+                                                       "title": title,
+                                                       "status": report_status})
+            messages.error(request, 'کدپیگیری وارد شده پیدا نشد. لطفا بیشتر دقت کنید!')
+    return render(request, 'status.html', {"form": form})
 
     # if a GET (or any other method) we'll create a blank form
 
@@ -96,7 +102,7 @@ def new_report(request):
                 n_report = form.save(commit=False)
                 n_report.reference_number = reference_number
                 n_report.save()
-                ref_number = persian.convert_en_numbers(str(reference_number))
+                ref_number = digits.en_to_fa(str(reference_number))
                 created_datetime = utc_to_local(n_report.created_datetime)
                 created_datetime = JalaliDatetime(created_datetime)
                 return render(request, 'thanks.html',
