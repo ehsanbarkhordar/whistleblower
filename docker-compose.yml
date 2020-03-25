@@ -2,16 +2,20 @@ version: '3'
 
 services:
   db:
-    container_name: db_whistleblowers
+    container_name: db
     image: postgres:12.0-alpine
     volumes:
       - /home/volumes/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=${DATABASE_USERNAME}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
     ports:
       - "5432:5432"
     env_file:
       - .env
   web:
-    container_name: web_whistleblowers
+    container_name: web
     build: .
     restart: always
     command:
