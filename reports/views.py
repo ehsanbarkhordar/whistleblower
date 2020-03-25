@@ -81,6 +81,7 @@ def status(request):
 
 
 def new_report(request):
+    data_site_key = settings.GOOGLE_RECAPTCHA_DATA_SITE_KEY
     if request.method == 'POST':
         form = ReportForm(request.POST)
         if form.is_valid():
@@ -112,7 +113,7 @@ def new_report(request):
                 messages.error(request, 'reCAPTCHA نامعتبر است. لطفا دوباره تلاش کنید.')
     else:
         form = ReportForm()
-    return render(request, 'new_report.html', {'form': form})
+    return render(request, 'new_report.html', {'form': form, "data_site_key": data_site_key})
 
 
 # class ReportViewSet(viewsets.ModelViewSet):

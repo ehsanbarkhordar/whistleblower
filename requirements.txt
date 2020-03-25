@@ -5,3 +5,4 @@ Markdown==3.2.1
 psycopg2-binary==2.8.4
 persiantools==1.4.1
 Khayyam==3.0.17
+django-environ==0.4.5
