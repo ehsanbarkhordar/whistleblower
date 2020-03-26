@@ -26,7 +26,7 @@ from reports.views import new_report, thanks, home, status
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
-router.register(r'reports', views.ReportViewSet, "ssss")
+router.register(r'reports', views.ReportViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
