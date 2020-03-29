@@ -24,7 +24,7 @@ services:
       - |
         python manage.py migrate
         python manage.py collectstatic --noinput
-        python manage.py runserver 0.0.0.0:8000
+        gunicorn -b whistleblowers_app:8000 --workers 5 whistleblowers.wsgi
     volumes:
       - .:/code
     ports:
