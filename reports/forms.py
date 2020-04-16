@@ -18,7 +18,7 @@ class ReportForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        super(ReportForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         # if you want to do it to all of them
         for field in self.fields.values():
             field.error_messages = {'required': 'پر کردن این فیلد اجباری است!'.format(

@@ -83,7 +83,7 @@ def status(request):
 def new_report(request):
     data_site_key = settings.GOOGLE_RECAPTCHA_DATA_SITE_KEY
     if request.method == 'POST':
-        form = ReportForm(request.POST)
+        form = ReportForm(request.POST, request.FILES)
         if form.is_valid():
             ''' Begin reCAPTCHA validation '''
             recaptcha_response = request.POST.get('g-recaptcha-response')
